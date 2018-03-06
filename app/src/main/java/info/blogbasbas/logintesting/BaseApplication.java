@@ -39,7 +39,8 @@ public class BaseApplication extends Application {
 
         Facade.init(daoSession);
 
-
+//
+        //
     }
     public static DaoSession getDaoSession() {
         return daoSession;
