@@ -5,11 +5,9 @@ import android.support.test.espresso.ViewInteraction;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.widget.TextView;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -37,24 +35,13 @@ import static org.hamcrest.Matchers.is;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-
-/*tes login, mencocokan informasi , logout*/
-
-
-public class loginTest1 {
-
-    public static final String idLogin = "guru";
-    public static final String passLogin = "1234";
+public class loginTest2 {
 
     @Rule
     public ActivityTestRule<SplashscreenActivity> mActivityTestRule = new ActivityTestRule<>(SplashscreenActivity.class);
-    //@Rule
-    //public FragmentTestRule<loginTest1> mFragmentTestRule = new FragmentTestRule<>(loginTest1.class);
-
-
 
     @Test
-    public void loginTest1() {
+    public void loginTest2() {
         // Added a sleep statement to match the app's execution delay.
         // The recommended way to handle such scenarios is to use Espresso idling resources:
         // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
@@ -86,14 +73,13 @@ public class loginTest1 {
         textInputEditText2.perform(replaceText("1234"), closeSoftKeyboard());
 
         ViewInteraction appCompatButton = onView(
-                allOf(withId(R.id.btnSignin),
+                allOf(withId(R.id.btnSignin), withText("SIGN IN"),
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.widget.LinearLayout")),
                                         1),
                                 3)));
         //appCompatButton.perform(scrollTo(), click());
-
         onView(withId(R.id.btnSignin)).perform(click());
 
 
@@ -156,6 +142,7 @@ public class loginTest1 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        */
 
         ViewInteraction appCompatButton2 = onView(
                 allOf(withId(android.R.id.button1), withText("Yes"),
@@ -166,30 +153,7 @@ public class loginTest1 {
                                 3)));
         //appCompatButton2.perform(scrollTo(), click());
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
-        //mFragmentTestRule.launchActivity(null);
-        //onView(withId(R.id.txtName)).check(matches(isDisplayed());
-        //TextView nameTextView = (TextView) findViewById(R.id.txtName);
-        //String name = nameTextView.getText().toString();
-
-
-        /*public void onClick4(View v)
-        {
-            if (option4Text.getText().toString().equals(toString(answer))) {
-                TextView questionText = (TextView) findViewById(R.id.question);
-                correctAnswer();
-                questionText.setText(questionTxt + "");
-            }
-        }*/
-
-
-        //Log.e("tes login 1","nama= " +name);
-        //Log.e("tes login 1","null");
 
     }
 
